@@ -29,21 +29,3 @@ CMD ["nginx"]
 EXPOSE 80
 EXPOSE 443
 
-vi default
-#############################################
-server {
-    listen 80 default;
-    server_name ui.docker.com;
-    location / {
-        proxy_pass http://130.211.248.25:8080;
-        proxy_read_timeout 900;
-    }
-}
-server {
-    listen 80;
-    server_name registry.docker.com;
-    location / {
-        proxy_pass http://130.211.248.25:5000;
-        proxy_read_timeout 900;
-    }
-}
